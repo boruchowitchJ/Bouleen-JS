@@ -149,13 +149,23 @@ const displaybis = document.getElementById('display-bis');
 btnbis.addEventListener('click', () => {
     const inputValue = parseInt(inputbis.value);
 
+    let verbe;
+
     if((inputValue  % 4 === 0 && inputValue % 100 > 0) || (inputValue % 400 === 0)) {
-        displaybis.innerText = inputValue + ' est une année bissextile';
+       verbe= 'est';
 
         } else {
-            displaybis.innerText = inputValue + ' n est pas une année bissextile';
+            verbe= 'n est pas ';
+            
         }
+        //displaybis.innerText = `l année ${inputValue} ${verbe} bisextile !`;
+
+        // ternaire -> condition ? (valeur de l' {} apres le if) valeur_positive :(valeur de l'{} apres le else ) valeur_negative.
+        const verbe2= ((inputValue  % 4 === 0 && inputValue % 100 > 0) || (inputValue % 400 === 0))? 'est': "n est pas " 
+        displaybis.innerText = `l année ${inputValue} ${verbe2} bisextile !`;
 })
+
+
 
 
 
